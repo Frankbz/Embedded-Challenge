@@ -2,8 +2,19 @@
 
 float X, Y, Z;
 
+bool start(){
+  if ((PINF & (1<<6)) == 0){ // if not pressed
+    return false;
+  } 
+  else { // pressed
+    return true;
+  }
+}
 
 void setup() {
+  // set right button as input (PF6)
+  DDRF &= ~(1<<6);
+
   Serial.begin(9600);
   CircuitPlayground.begin();
 }
@@ -22,8 +33,8 @@ void loop() {
   Serial.println(Z);
 
   delay(100);
-  if (X < 0){
-    CircuitPlayground.setPixelColor(3,   0, 128, 128);
+  if (start()){
+    CircuitPlayground.setPixelColor(3, 0, 128, 128);
   }
   else{
     CircuitPlayground.clearPixels();
