@@ -43,11 +43,11 @@ bool shake(float X, float Y, float Z){
 }
 
 bool goDown(float X, float Y, float Z){
-  return (Z < 10);
+  return (Z < 12);
 }
 
 bool goUp(float X, float Y, float Z){
-  return (Z > 10);
+  return (Z > 12);
 }
 
 bool blow(float val){
@@ -131,6 +131,7 @@ void loop() {
       if (forward(X, Y, Z)) { stage = 9; }
       if (left(X, Y, Z)) { stage = 11; }
       if (backward(X, Y, Z)) { stage = 13; }
+      if (right(X, Y, Z)) { stage = 15;}
       
     }
     if (stage == 1){
@@ -138,7 +139,6 @@ void loop() {
       if (right(X, Y, Z)) { stage = 4; }
       if (forward(X, Y, Z)) { stage = 5; }
       if (backward(X, Y, Z)) { stage = 6; }
-      if (shake(X, Y, Z)) { stage = -5; }
       if (goUp(X, Y, Z)) { stage = 14; }
     }
     if (stage == 2){
@@ -179,6 +179,12 @@ void loop() {
     }
     if (stage == 14){
       if (dark(light_value)) { stage = -10; }
+    }
+    if (stage == 15){
+      if (up(X, Y, Z)) { stage = 16; }
+    }
+    if (stage == 16){
+      if (shake(X, Y, Z)) { stage = -5; }
     }
 
   }
