@@ -51,7 +51,7 @@ bool goUp(float X, float Y, float Z){
 }
 
 bool blow(float val){
-  return (val > 10);
+  return (val > 90);
 }
 
 bool dark(float val){
@@ -188,9 +188,9 @@ void loop() {
     }
 
   }
-  else{ // This is only for testing, in project we only need to reach one gesture stage
-    CircuitPlayground.clearPixels();
-    stage = 0;
-  }
+  // else{ // This is only for testing, in project we only need to reach one gesture stage
+  //   CircuitPlayground.clearPixels();
+  //   stage = 0;
+  // }
   
 }
